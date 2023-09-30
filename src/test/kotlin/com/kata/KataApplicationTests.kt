@@ -9,5 +9,4 @@ class KataApplicationTests {
     @Test
     fun contextLoads() {
     }
-
 }

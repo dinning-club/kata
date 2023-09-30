@@ -1,0 +1,24 @@
+#!/bin/bash
+echo "Running detekt check..."
+
+cd $(dirname ${BASH_SOURCE[0]}) && cd ../
+
+./gradlew detekt
+status=$?
+
+if [ $status -ne 0 ]; then
+  echo " "
+  echo "********************************************************************"
+  echo "                          Detekt failed                          "
+  echo "                    위 이슈들을 고친 후 커밋해주세요.                    "
+  echo "********************************************************************"
+  echo " "
+else
+  echo " "
+   echo "********************************************************************"
+   echo "                          Detekt succeed                          "
+   echo "********************************************************************"
+  echo " "
+fi
+
+exit $status
